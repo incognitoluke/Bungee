@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+<html>
+<head>
+	<link href="{% static 'css/styles/multiselect.css' %}" rel="stylesheet"/>
+	<script src="{% static 'css/multiselect.min.js' %}"></script>
+	<style>
+		/* example of setting the width for multiselect */
+		#testSelect1_multiSelect {
+			width: 200px;
+			text-align: left;
+
+			margin-top: 1rem;
+		}
+
+		    /* The container */
+	.container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Hide the browser's default radio button */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    /* Create a custom radio button */
+    .radio-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .radio-button {
+      background-color: #ccc;
+    }
+    
+    /* When the radio button is checked, add a blue background */
+    .container input:checked ~ .radio-button {
+      background-color: #2196F3;
+    }
+    
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .radio-button:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked ~ .radio-button:after {
+      display: block;
+    }
+    
+    /* Style the indicator (dot/circle) */
+    .container .radio-button:after {
+         top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    /* Customize the label (the container) */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkbox {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkbox {
+      background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkbox:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkbox:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkbox:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  
+    .volunteer-form-1, ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgb(255, 255, 255);
+      opacity: 1; /* Firefox */
+    }
+
+    .form-control-submit{
+      background-color: rgb(255, 131, 74);
+      margin-bottom: 5rem;
+    }
+	</style>
+</head>
+<body>
+
+<body class="volunteer-bg">
+	
+	<div class="contact-form">
+		<h1 class="volunteer-title">Donation Form</h1>  
+		<form id="volunteer" class="form" action="." method="POST"> {% csrf_token %}
+			<input name="Name" type="text" class="volunteer-form-1" placeholder="Your Name" required><br>
+			<input name="Town" type="text" class="volunteer-form-1" placeholder="Your Town" required><br>
+			<input name="Address" type="text" class="volunteer-form-1" placeholder="Your Address (Include Apt. #)" required><br>
+			<input name="Email" type="email" class="volunteer-form-1" placeholder="Your Email" required><br>
+			<input name="Number" type="tel" class="volunteer-form-1" placeholder="Your Number" required><br>
+			
+      <span id="donation_list" style="margin-top: 1rem; margin-bottom: 2rem; color: white; font-size: 14pt;">Select what items you can donate:</span><br>
+			<select name="Donation" id='testSelect1' multiple >
+				{% for item in object.Non_Perishable %}
+				<option style="font-size: 14pt;" value="{{ item }}" multiple>{{ item }}</option>
+				{% endfor %}
+				{% for item in object.Perishable %}
+				<option style="font-size: 14pt;" value="{{ item }}" multiple>{{ item }}</option>
+				{% endfor %}
+			</select><br>
+      
+
+
+      <div class="custom-control custom-checkbox my-1 mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="customControlInline" name="Terms" value="True" required>
+        <label class="custom-control-label" for="customControlInline" style="color:white; margin-top: 2rem; margin-bottom: 2rem;">I agree to the terms and conditions</label>
+      </div>
+	
+			
+			<input type="submit" id="submit" class="form-control-submit" value="Submit" >
+			
+			
+		</form>
+		</div>
+	
+	</body>
+
+
+<script>
+	document.multiselect('#testSelect1')
+		.setCheckBoxClick("checkboxAll", function(target, args) {
+			console.log("Checkbox 'Select All' was clicked and got value ", args.checked);
+		})
+		.setCheckBoxClick("1", function(target, args) {
+			console.log("Checkbox for item with value '1' was clicked and got value ", args.checked);
+		});
+
+	function enable() {
+		document.multiselect('#testSelect1').setIsEnabled(true);
+	}
+
+	function disable() {
+		document.multiselect('#testSelect1').setIsEnabled(false);
+	}
+</script>
+{% endblock %}

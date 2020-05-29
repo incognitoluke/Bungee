@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/animation.css' %}">
+
+
+<body class="submission-bg" style="background-color: #103a5a;">
+    
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="margin-top: 10rem;">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
+
+    <div class="submission-title" style="margin-bottom: 15.9rem; color: white;">
+        <h1>We have received your submission!</h1>
+    </div>
+</body>
+
+{% endblock %}
+

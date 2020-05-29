@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .anonymous-section{
+        margin: 3rem;
+        
+    }
+    .items{
+        font-size: 15pt;
+    }
+
+    .border{
+        /* Rounded border */
+        margin: 5rem;
+    border-top: 8px solid rgb(119, 119, 119);
+    border-radius: 3px;
+
+    }
+
+    .background{
+        background-color: #103a5a;
+        
+    }
+    .title{
+        text-align: center;
+        color: white;
+        margin: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    
+</style>
+<div class="title">
+    <h1 id="list-title" >Anonymized Donation Requests</h1>
+    <p id="big-paragraph" >This is a list of anonymous requests from people in need of donations.</p>
+    <p id="lil-paragraph" >Click on each section to see how you can donate.</p>
+    <hr class="border">
+</div>
+<body class="background">
+    
+    <div style="text-align: center; color: white;">
+    {% if length == 0 %}
+        <p id="no-donations" style="margin-top: 9rem; margin-bottom: 13.9rem;">There are no requests for donations at this time. Check back later for updates! </p>
+    {% endif %}
+
+        {% for instance in object_list %}
+        <div class="anonymous-section">
+            <a href="/donate/{{ instance.id }}" style="color: white;"><h1 style="color:#00aeff;">Anonymous #{{ instance.alias }}</h1></a>
+            <div class="items">
+
+                <div class="btn-group" style="padding: 0.5rem;">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Perishable
+                    </button>
+                    <div class="dropdown-menu">
+                    {% for item in instance.Perishable %}
+                    <a class="dropdown-item" href="#">{{ item }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
+
+                <div class="btn-group" style="padding: 0.5rem;">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Non-Perishable
+                    </button>
+                    <div class="dropdown-menu">
+                    {% for item in instance.Non_Perishable %}
+                    <a class="dropdown-item" href="#">{{ item }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <hr class="border">
+        </div>
+        {% endfor %}
+    
+    {% if length == 1 %}
+        <style>.anonymous-section{margin-bottom: 9rem;}</style>
+    {% endif %}
+    
+    </div>
+</body>
+{% endblock %}
+

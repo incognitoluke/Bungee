@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Hide the browser's default radio button */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    /* Create a custom radio button */
+    .radio-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .radio-button {
+      background-color: #ccc;
+    }
+    
+    /* When the radio button is checked, add a blue background */
+    .container input:checked ~ .radio-button {
+      background-color: #2196F3;
+    }
+    
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .radio-button:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked ~ .radio-button:after {
+      display: block;
+    }
+    
+    /* Style the indicator (dot/circle) */
+    .container .radio-button:after {
+         top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    /* Customize the label (the container) */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkbox {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkbox {
+      background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkbox:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkbox:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkbox:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  
+    .volunteer-form-1, ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgb(255, 255, 255);
+      opacity: 1; /* Firefox */
+    }
+
+    .form-control-submit{
+      background-color: rgb(255, 131, 74);
+      margin-bottom: 5rem;
+    }
+
+    .slidecontainer {
+    text-align: left;
+    margin-left: 34.5%;
+    }
+
+    .slider {
+    -webkit-appearance: none;
+    width: 20%;
+    height: 15px;
+    border-radius: 5px;
+    background: #ececec;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    }
+
+    .slider:hover {
+    opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25.5px;
+    height: 25.5px;
+    border-radius: 70%;
+    background: rgb(1, 175, 255);
+    cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(9, 95, 129);
+    cursor: pointer;
+    }
+
+    .slider{
+  margin-right: 20rem;
+    }
+
+    </style>
+
+
+<body class="volunteer-bg">
+    <div class="contact-form">
+      <h1 class="volunteer-title">Donation Request Form</h1>  
+      <form id="volunteer" class="form" action="." method="POST"> {% csrf_token %}
+            <input name="Name" type="text" class="volunteer-form-1" placeholder="Your Name" required><br>
+            <input name="Town" type="text" class="volunteer-form-1" placeholder="Your Town" required><br>
+            <input name="Address" type="text" class="volunteer-form-1" placeholder="Your Address (Include Apt. #)" required><br>
+            <input name="Email" type="email" class="volunteer-form-1" placeholder="Your Email" required><br>
+            <input name="Number" type="tel" class="volunteer-form-1" placeholder="Your Number" style="margin-bottom: 3rem;" required><br>
+
+            
+            <span id="urgency" style="margin-top: 3rem; margin-right:0rem; margin-bottom: .5rem!important; margin-top: .5rem!important; color: white; font-size: 13.5pt;">On a scale from 1 to 5 how urgent are your needs   (5 being Most Urgent)</span><br>
+            <div id="slider" class="d-flex justify-content-center my-4" >
+
+              
+                <input class="custom-range" id="customeRange1" type="range" name="Urgency" min="1" max="5" style="width:200px;"/>
+                <p style="color: rgb(0, 204, 255); margin-bottom: 1.3rem; margin-left: 1rem;">Value: <span id="demo"></span></p>
+              
+            </div>
+            
+            
+                
+            
+
+
+            <textarea name="Non-perishable" class="volunteer-form-1" placeholder="Enter non-perisable items you are requesting here                             (Separate each item by a comma)" rows="4" required style="height: 90px; margin-bottom: 4rem;"></textarea><br>
+            <textarea name="Perishable" class="volunteer-form-1" placeholder="Enter perisable items you are requesting here                                     (Separate each item by a comma)" rows="4" required style="height: 90px;"></textarea><br>
+
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="customControlInline" name="Terms" value="True" required>
+              <label class="custom-control-label" for="customControlInline" style="color:white; margin-top: 2rem; margin-bottom: 2rem;">I agree to the terms and conditions</label>
+            </div>
+
+            
+            <input type="submit" id="submit" class="form-control-submit" value="Submit" >
+            
+            
+        </form>
+      </div>
+      
+      <script>
+        var slider = document.getElementById("customeRange1");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+    </script>
+
+
+</body>
+
+{% endblock %}
+

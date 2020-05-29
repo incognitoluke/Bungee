@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<style> 
+.attention{
+    font-size: 20pt;
+}
+@media (max-width: 800px){
+    .attention{
+        font-size: 10pt;
+    }
+}
+</style>
+<div class="Background">
+    <h1 class="attention" style="text-align: center; color: white; background-color: rgb(0, 53, 133);" >ATTENTION: We are only providing service to the New Milford / Dumont / Bergenfield area. <br> 
+      More areas will potentially be available soon in the future.
+      </h1>
+
+      <p class="heading">Peer-to-Peer Community Relief</p>
+      
+      <p class="main-paragraph">Due to the current health crisis many families are currently displaced from work making it hard for them to provide for their loved ones. During an unprecendented time like this, no one deserves to go hungry. This is an initiative to provide economic relief to those families by anonymous and peer-to-peer donations of non-perishable goods.</p>
+      <p class="heading-2">How it works:</p>
+      
+      <div class="grid-container">
+          <div class="grid-item">
+              <a class="Description" href="/volunteer" >Volunteer</a>
+              <p class="Paragraph">Volunteers pick up donations outside the location of the person donating and drops them off to the person in need. </p>
+          </div>
+          <div class="grid-item">
+
+              <a class="Description" href="/donate" style="text-align: center;">Donate</a>
+              <p class="Paragraph">After a request is made for certain donations, the goods most in demand are posted and people are able to donate any extra unopened   non-perishable foods they may have.</p>
+          </div>
+          <div class="grid-item">
+
+              <a class="Description" href="/order" link="need" LINK="blue" style="margin-top: 10rem;">In-Need</a>
+              <p class="Paragraph">Those in need of food or other supplies can anonymously request their needs and receive them in a timely peroid with no financial burden.</p>
+          </div>
+      </div>
+      <div>
+          <h1 style="position:-webkit-sticky;"></h1>
+          <p></p>
+      </div>
+  </div>
+
+
+  </body>
+
+
+
+{% endblock %}
+
+{% block footer %}
+<footer class="footer-text">
+    <p>CommunitySupport.online Established 2020</p><p><a href="/terms" style="color:rgb(0, 247, 255);">
+    Terms of Service</a></p>
+  </footer>
+
+{% endblock %}

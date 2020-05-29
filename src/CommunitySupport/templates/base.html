@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Community Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="display-image" src="https://communitysupport.online/preview">
+
+    <meta name="twitter:title" content="Community Support">
+    <meta name="twitter:description" content="Due to the current health crisis many families are currently displaced from work making it hard for them to provide for their loved ones...">
+    <meta name="twitter:image" content="https://communitysupport.online/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+
+    <meta property="og:url"                content="https://communitysupport.online/" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Community Support" />
+    <meta property="og:description"        content="Due to the current health crisis many families are currently displaced from work making it hard for them to provide for their loved ones..." />
+    <meta property="og:image"              content="https://communitysupport.online/preview.jpg" />
+
+  </head>
+<body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">
+        <a class="main-home" href="/">
+          <img class="image-wide" src="{% static 'css/logo-wide.svg' %}" href="index.html">
+        </a>
+        <a class="main-home" href="/">
+          <img class="image" src="{% static 'css/logo.svg' %}" href="index.html">
+        </a>
+      </label>
+      <ul id="tab">
+        <li><a href="#">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+</body>
+<body>
+    {% block content %}
+    replace me
+    {% endblock %}
+    
+    
+      <div class="footer-bg" style="height: 7rem;">
+      </div>
+        <img class="footer-image" href="/preview" src="{% static 'css/preview.jpg' %}" style="width:3%; position: absolute; margin-top: 3.7rem;">
+        
+        {% block footer %}{% endblock %}
+
+</body>
+  <script src="{% static 'bootstrap/js/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</html>
