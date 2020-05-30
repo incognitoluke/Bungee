@@ -201,6 +201,10 @@ section{
 
 
 @media (max-width: 1270px){
+    .grid-item{
+      margin: 0rem;
+      margin-bottom: 1rem;
+    }
     .grid-container{
         display: table;
         margin-left: 2rem;
@@ -243,6 +247,13 @@ section{
     }
 
 
+  .attention{
+    font-size: 12pt; 
+    text-align: center; 
+    color: white; 
+    padding-left: 9rem;
+    background-color: rgba(25, 86, 161, 0.55);
+  }
   .need-form{
       
     }
@@ -419,12 +430,11 @@ section{
     }
 
     .footer-text{
-      margin-top: 1rem;
       text-emphasis-color: rgb(255, 0, 221);
       position: relative;
       text-align: center;
       color: white;
-      margin-top: 4.5rem;
+      margin-top: 8rem;
     }
 
     @media (max-width:650px){
@@ -484,9 +494,9 @@ section{
 
     }
 
-    @media (max-width:1500px){
+    @media (max-width:1080px){
       .attention{
-        font-size: 12px;
+        padding: 0rem;
       }
     }
 
