@@ -139,7 +139,7 @@ section{
 }
 
 .grid-container {
-  display: inline-grid;
+  display: flex;
   grid-template-columns: auto auto auto;
   border-radius: 2rem;
   padding: 10px;
@@ -154,7 +154,10 @@ section{
   text-align: center;
   margin: 1.6rem;
   border-radius: 20px;
+  width: 100%;
 }
+
+
 
 .grid-item:hover{
   cursor: pointer;
@@ -179,8 +182,8 @@ section{
 .main-paragraph{
   text-align: center;
   margin-top: 3rem;
-  margin-right: 25rem;
-  margin-left: 25rem;
+  margin-right: 20rem;
+  margin-left: 20rem;
   font-size: 18pt;
   margin-bottom: 8rem;
   color: #fdfeff;
@@ -215,10 +218,10 @@ section{
 
     .main-paragraph{
       text-align: center;
-      margin-top: 2rem;
-      margin-right: 2rem;
-      margin-left: 2rem;
-      font-size: 13pt;
+      margin-top: 1rem;
+      margin-right: 1.7rem;
+      margin-left: 1.7rem;
+      font-size: 12pt;
     }
   }
 
@@ -481,7 +484,7 @@ section{
 
     }
 
-    @media (max-width:1000px){
+    @media (max-width:1500px){
       .attention{
         font-size: 12px;
       }
@@ -687,3 +690,8 @@ section{
   }
 }
 
+@media (max-width:1400px){
+  .Paragraph{
+    font-size: 10pt;
+  }
+}
