@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Order, Donation
 from .form import OrderForm, DonationForm
-import pandas as pd
 import datetime
 from .sort import sort_orders
 
