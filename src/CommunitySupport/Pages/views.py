@@ -16,3 +16,6 @@ def contact_view(request, *args, **kwargs):
 
 def submission_view(request, *args, **kwargs):
     return render(request, "submission.html")
+
+def terms_view(request, *args, **kwargs):
+    return render(request, "terms.html")

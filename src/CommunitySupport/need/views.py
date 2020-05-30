@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Order, Donation
 from .form import OrderForm, DonationForm
+import pandas as pd
 import datetime
 from .sort import sort_orders
 
@@ -32,9 +33,23 @@ def order_view(request):
     context = {}
     return render(request, "order.html", context)
 
+"""def region_donation(request):
+
+    towns_list = ['Allendale','Alpine', 'Bergenfield', 'Bogota', 'Carlstadt', 'Cliffside Park', 'Closter', 'Cresskill', 'Demarest', 'Dumont', 'East Rutherford', 'Edgewater', 'Elmwood Park', 'Emerson', 'Englewood', 'Englewood Cliffs', 'Fair Lawn', 'Fairview', 'Fort Lee', 'Franklin Lakes', 'Garfield', 'Glen Rock', 'Hackensack', 'Harrington Park', 'Hasbrouck Heights', 'Haworth', 'Hillsdale', 'Ho Ho Kus', 'Leonia', 'Little Ferry', 'Lodi', 'Lyndhurst', 'Mahwah', 'Maywood', 'Midland Park', 'Montvale', 'Moonachie', 'New Milford', 'North Arlington', 'Northvale', 'Norwood', 'Oakland', 'Old Tappan', 'Oradell', 'Palisades Park', 'Paramus', 'Park Ridge', 'Ramsey', 'Ridgefield', 'Ridgefield Park', 'Ridgewood', 'River Edge', 'River Vale', 'Rochelle Park', 'Rockleigh', 'Rutherford', 'Saddle Brook', 'Saddle River', 'South Hackensack', 'Teaneck', 'Tenafly', 'Teterboro', 'Upper Saddle River', 'Waldwick', 'Wallington', 'Washington Township', 'Westwood', 'Woodcliff Lake', 'Wood-Ridge', 'Wyckoff']
+
+    if request.method == "POST":
+        Town = request.POST.get('Town')
+        return redirect('/donate/' + Town)
+    
+    context = {
+        "towns_list": towns_list,
+    }
+
+    return render(request, "donation_region.html", context)"""
+
+#add town to sort
 def order_list_view(request):
     queryset = Order.objects.all()
-    
 
     approved = []
     for item in queryset:
@@ -66,12 +81,14 @@ def order_list_view(request):
 
         obj.Non_Perishable = item
         obj.Perishable = item_two
+        obj.town = (obj.town).title()
 
     list_length = len(approved)
     context = {
         "object_list": approved,
         "non-perishable": Non_Perishable,
-        "length": list_length
+        "length": list_length,
+        #"town": town,
     }
     return render(request, "donation_list.html", context)
 

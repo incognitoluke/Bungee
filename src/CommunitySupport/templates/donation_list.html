@@ -33,6 +33,7 @@
     
 </style>
 <div class="title">
+    <!-- <p id= "big-paragraph">Location: <b>{{ town }}</b></p> -->
     <h1 id="list-title" >Anonymized Donation Requests</h1>
     <p id="big-paragraph" >This is a list of anonymous requests from people in need of donations.</p>
     <p id="lil-paragraph" >Click on each section to see how you can donate.</p>
@@ -48,6 +49,7 @@
         {% for instance in object_list %}
         <div class="anonymous-section">
             <a href="/donate/{{ instance.id }}" style="color: white;"><h1 style="color:#00aeff;">Anonymous #{{ instance.alias }}</h1></a>
+            <p>Location: <b>{{ instance.town }}</b> </p>
             <div class="items">
 
                 <div class="btn-group" style="padding: 0.5rem;">

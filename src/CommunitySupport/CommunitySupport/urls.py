@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from contact.views import contact_create_view
-from Pages.views import home_view, contact_view, submission_view
+from Pages.views import home_view, contact_view, submission_view, terms_view
 from volunteer.views import volunteer_view
 from need.views import order_view, order_list_view, dynamic_order_view
 
@@ -27,7 +27,9 @@ urlpatterns = [
     path('submission/', submission_view, name='submission'),
     path('volunteer/', volunteer_view, name='volunteer'),
     path('donate/', order_list_view, name='donate'),
+    #path('donate/<str:town>/', order_list_view, name='donate_view'),
     path('donate/<int:id>/', dynamic_order_view, name='donate_view'),
     path('order/', order_view, name='order'),
+    path('terms/', terms_view, name='terms'),
     path('admin/', admin.site.urls)
 ]

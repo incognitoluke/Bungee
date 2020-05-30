@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Webslesson Tutorial | How to Use Bootstrap Select Plugin with PHP JQuery</title>
+
+  
+ </head>
+ <body>
+  <br /><br />
+  <div class="container">
+   <div class="col-md-4" style="margin-left:200px;">
+    <form action="." method="POST"> {% csrf_token %}
+     <select name="Town" id="framework" class="form-control selectpicker" data-live-search="true" >
+        {% for town in towns_list %}
+        <option value="{{ town }}">{{ town }}</option>
+        {% endfor %}
+     </select>
+     <br /><br />
+     <input type="hidden" name="hidden_framework" id="hidden_framework" />
+     <input type="submit" class="btn btn-info" value="Next" />
+    </form>
+    <br />
+    
+   </div>
+  </div>
+ </body>
+</html>
+
+
+
+
+{% endblock %}
