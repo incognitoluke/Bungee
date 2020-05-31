@@ -20,7 +20,7 @@
     }
 
     .background{
-        background-color: #103a5a;
+        background-color: rgb(40, 50, 65);
         
     }
     .title{
@@ -48,7 +48,7 @@
 
         {% for instance in object_list %}
         <div class="anonymous-section">
-            <a href="/donate/{{ instance.id }}" style="color: white;"><h1 style="color:#00aeff;">Anonymous #{{ instance.alias }}</h1></a>
+            <a href="/donate/{{ instance.id }}" style="color: white;"><h1 style="color:#e07b00e0;">Anonymous #{{ instance.alias }}</h1></a>
             <p>Location: <b>{{ instance.town }}</b> </p>
             <div class="items">
 
