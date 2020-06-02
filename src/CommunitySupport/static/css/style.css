@@ -17,7 +17,7 @@ body{
 }
 
 nav{
-  background: linear-gradient(#e07b00e0,#e67f00);
+  background: linear-gradient(#ff9100,#e68200);
   height: 115px;
   width: 100%;
 }
@@ -75,11 +75,11 @@ nav ul li a:hover{
 }
 
 #block-title:hover{
-  color: #e67f00!important;
+  color: #e69600!important;
 }
 
 a.active,a:hover{
-  color: #e67f00;
+  color: #e69600;
   transition: .5s;
   text-decoration: none;
 }
@@ -130,7 +130,7 @@ a.active,a:hover{
   }
   a:hover,a.active{
     background: none;
-    color: #e67f00;
+    color: #e69600;
     text-decoration: none;
   }
   #check:checked ~ #tab{
@@ -154,7 +154,7 @@ section{
   
 }
 .grid-item {
-  border: 3px solid  #e69d00;
+  border: 3px solid  #fdb415;
   padding: 20px;
   text-align: center;
   margin: 1.6rem;
@@ -174,7 +174,7 @@ section{
 .Description {
   font-size: 30pt;
   font-weight: bold;
-  color: #e67f00;
+  color: #ff9100;
   margin-bottom: 2rem;
 }
 
