@@ -2,7 +2,7 @@ from django.core.mail import EmailMessage
 
 from django.template.loader import get_template
 
-def contact_send_email(name, email, amessage):
+def contact_send_email(name, email, subject, amessage):
     context = {
 
     'name': name,
@@ -16,13 +16,12 @@ def contact_send_email(name, email, amessage):
     }
 
     cfrom = 'Luketyler.business@gmail.com'
-    subject = "Form Submission"
-    to = [email]
+
     #pass context to template
 
     message = get_template('contact-email.html').render(context)
 
-    msg = EmailMessage(subject, message, cfrom, to)
+    msg = EmailMessage(subject, message, cfrom, email)
 
     msg.content_subtype = "html"
 

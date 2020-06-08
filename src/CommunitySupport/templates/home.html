@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-
+{% load static %}
 {% block content %}
 <style> 
 
@@ -10,7 +10,10 @@
 
 <body style="background-color: rgb(40, 50, 65);">
 <div class="Background">
-    
+    <img src="{% static 'css/logo1.svg' %}" href="index.html" style="height: 150px; width: 150px; display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; margin-top: 5rem;">
       <h1 class="heading">
         <span class="smallerFont" style="color: #e67f00; font-weight: lighter;">Peer-to-Peer</span>
         <span class="bigFont" style="color: #ffffff;">Community Relief</span>
@@ -20,8 +23,6 @@
       
       <hr style="margin-top: 4rem; border-top: 1px solid #e67f00;">
       <p class="heading-2" style="color: white;">How To Get Involved:</p>
-      
-      
       
       <div class="grid-container">
           <div class="grid-item">

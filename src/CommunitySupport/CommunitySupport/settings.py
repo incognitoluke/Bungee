@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,11 +21,33 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-F = open("key.txt","w")
-SECRET_KEY = F
+
+
+F = open("key.txt","r")
+key = F.read()
+SECRET_KEY = key
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+p = open("email.txt", "r")
+Password = p.read()
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = "luketyler.business@gmail.com"
+EMAIL_HOST_PASSWORD = Password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+
+
+p.close()
+
 
 ALLOWED_HOSTS = []
 

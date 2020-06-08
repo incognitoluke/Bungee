@@ -375,6 +375,12 @@ section{
       
     }
     
+    @media (max-width:600px){
+      .form-control-2{
+        width: 300px;
+        margin-bottom: 3rem;
+      }
+    }
     
 
 
@@ -687,10 +693,13 @@ section{
     left: 0%;
   }
   #lil-paragraph{
-    font-size: 12pt;
+    font-size: 13pt;
   }
   #big-paragraph{
-    font-size: 14pt;
+    font-size: 11pt;
+  }
+  .border{
+    margin: 3rem;
   }
   #list-title{
     font-size: 20pt;
