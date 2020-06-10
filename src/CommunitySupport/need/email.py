@@ -2,7 +2,7 @@ from django.core.mail import EmailMessage
 
 from django.template.loader import get_template
 
-def contact_send_email(name, email, amessage):
+def alert_email(name, email, amessage):
     context = {
 
     'name': name,
@@ -16,7 +16,7 @@ def contact_send_email(name, email, amessage):
     }
 
     cfrom = 'Luketyler.business@gmail.com'
-    subject = "Form Submission"
+    subject = "Thank you! We've received your donation submission ☑"
     to = [email]
     #pass context to template
 

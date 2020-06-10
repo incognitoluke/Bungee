@@ -38,7 +38,7 @@ label.logo{
   display: none;
 }
 
-@media (max-width: 945px){
+@media (max-width: 680px){
   .image-wide{
     display: none;
   }
@@ -46,8 +46,10 @@ label.logo{
   .image{
   display: inline-block;
   margin-left: 0rem;
-  width: 210px; 
+  width: 240px; 
   margin-top: .7rem;
+  margin-left: 1rem;
+  margin-top: 1.25rem;
 }}
 
 
@@ -93,6 +95,12 @@ a.active,a:hover{
   cursor: pointer;
   display: none;
 }
+
+.site-image:hover{
+  transition: .5s;
+  transform: scale(1.05);
+}
+
 #check{
   display: none;
 }
@@ -668,6 +676,8 @@ section{
 #no-donations{
   font-size:24pt;
 }
+
+
 
 @media (max-width:720px){
   #slider{

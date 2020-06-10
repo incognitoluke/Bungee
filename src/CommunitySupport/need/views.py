@@ -4,7 +4,7 @@ from .models import Order, Donation
 from .form import OrderForm, DonationForm
 import datetime
 from .sort import sort_orders
-from .email import contact_send_email
+from .email import alert_email
 
 import itertools
 #import itertools
@@ -118,8 +118,7 @@ def dynamic_order_view(request, id):
         print(name,town,address,email,number,donation,terms,time)
         Donation.objects.create(name=name,address=address,town=town,email=email,number=number,donation=donation,terms=terms,time=time)
         
-        contact_send_email(name, email, donation)
-        #alert_email(name)
+        alert_email(name, email, donation)
         return redirect('/submission')
 
     context = {
